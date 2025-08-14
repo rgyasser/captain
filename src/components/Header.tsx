@@ -64,7 +64,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
           {/* Logo */}
           {/* CORRECTION: Bddelna <a> b <Link> w <img> b <Image> */}
           <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-bold text-blue-600 hover:text-blue-500 transition-colors">
-            <Image src="/images/logo.png" alt="Captain Maroc Logo" width={120} height={40} priority className='hover:scale-95 transition-transform' />
+            <Image src="/images/lg.png" alt="Captain Maroc Logo" width={120} height={40} priority className='hover:scale-95 transition-transform' />
           </Link>
 
           {/* Hamburger Menu Icon (Mobile only) */}

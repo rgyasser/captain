@@ -3,7 +3,6 @@
 import React from 'react'; // 7yedna useState
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer'; // Rj3na Footer
 import type { Variants } from 'framer-motion';
 import Image from 'next/image'; // ZEDNA IMPORT DYAL IMAGE
 
@@ -77,13 +76,7 @@ export default function SAVPage() {
         <div className="relative h-[50vh] bg-gray-800 text-white flex items-center justify-center">
           <div className="absolute inset-0">
             {/* CORRECTION: Bddelna <img> b <Image> dyal Next.js */}
-            <Image
-              src="/images/sav.jpg"
-              alt="Atelier de service après-vente"
-              fill
-              priority
-              className="object-cover opacity-40"
-            />
+          
           </div>
           <motion.div
             className="relative z-10 text-center"
@@ -148,8 +141,6 @@ export default function SAVPage() {
           </a>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }
