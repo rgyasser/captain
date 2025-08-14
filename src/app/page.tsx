@@ -128,14 +128,16 @@ export default function HomePage() {
         className="relative w-full h-[60vh] md:h-[80vh] bg-cover bg-center pt-20"
         style={{ backgroundImage: "url('/images/imgi_16_bg1.png')" }}
       >
-        <div className="absolute inset-0 flex items-center justify-center">
+        {/* MODIFICATION: L'image du tracteur est déplacée vers le haut et à droite */}
+        <div className="absolute inset-0 flex items-start justify-end pt-10 pr-10 md:pt-39 md:pr-60">
           <Image
             src="/images/imgi_6_1.png"
             alt="Captain Tractor"
             width={700}
             height={700}
-            className="w-auto h-auto max-w-[90%] max-h-[80%] object-contain"
+            className="w-auto h-auto max-w-[80%] md:max-w-[80%] max-h-[90%] object-contain"
             priority
+            onError={(e) => e.currentTarget.src='https://placehold.co/700x700/cccccc/FFFFFF?text=Tracteur'}
           />
         </div>
       </section>
