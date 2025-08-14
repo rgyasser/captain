@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { User, Mail, MessageSquare, Send, MapPin, Phone, Menu, X, Car } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 
 export default function ContactPage() {
   return (

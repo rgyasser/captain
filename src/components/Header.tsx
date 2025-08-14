@@ -1,6 +1,13 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useRouter, usePathname } from 'next/navigation';
+
+interface MenuItem {
+  label: string;
+  href: string;
+  onClick?: (e: React.MouseEvent) => void;
+}
 
 interface HeaderProps {
   className?: string;
@@ -8,14 +15,44 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ className = '' }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    // Check if we need to scroll to accessories after navigation
+    if (window.location.hash === '#accessories') {
+      const element = document.getElementById('accessories');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [pathname]);
 
   const menuItems = [
     { label: 'Accueil', href: '/' },
-    { label: 'Galerie', href: '/galerie' },
+    { 
+      label: 'Accessoires', 
+      href: '/#accessories',
+      onClick: (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (pathname === '/') {
+          // If we're on the home page, just scroll
+          const element = document.getElementById('accessories');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            setMenuOpen(false);
+          }
+        } else {
+          // If we're on another page, navigate to home page with hash
+          router.push('/#accessories');
+          setMenuOpen(false);
+        }
+      }
+    },
     { label: 'Devis', href: '/devis' },
     { label: 'Service Après-Vente', href: '/sav' },
-
-    { href: '/contact', label: 'Contact' },
+    { label: 'Fiche technique', href: '/fich' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -24,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
         <div className="flex justify-between items-center h-16">  {/* was h-20 */}
           {/* Logo */}
           <a href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-bold text-blue-600 hover:text-blue-500 transition-colors">
-            <img src="images/logo.png" alt="" className='w-15 hover:scale-95 transition-transform'/> {/* was w-15 */}
+            <img src="images/logo.png" alt="" className='w-30 hover:scale-95 transition-transform' /> {/* was w-15 */}
           </a>
 
           {/* Hamburger Menu Icon (Mobile only) */}
@@ -43,10 +80,11 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
                 <a
                   key={index}
                   href={item.href}
-                  className="relative group font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300"
+                  onClick={item.onClick}
+                  className="relative group font-medium text-gray-700 hover:text-red-600 transition-colors duration-300"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
             </div>
@@ -63,7 +101,13 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
                 key={index}
                 href={item.href}
                 className="text-lg text-gray-700 text-left py-3 px-4 rounded-md hover:bg-gray-100 transition-colors duration-200"
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => {
+                  if (item.onClick) {
+                    item.onClick(e);
+                  } else {
+                    setMenuOpen(false);
+                  }
+                }}
               >
                 {item.label}
               </a>
