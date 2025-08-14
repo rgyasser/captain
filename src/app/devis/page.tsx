@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react';
 import Header from '@/components/Header';
-
+import Image from 'next/image'; // ZEDNA IMPORT DYAL IMAGE
 import { motion } from 'framer-motion';
 import {
-  Car,
+  // 7YEDNA 'Car' men hna
   User,
   Mail,
   Phone,
@@ -84,20 +84,28 @@ export default function DevisPage() {
           >
             {/* Partie Gauche : Infos Véhicule */}
             <div className="p-8 flex flex-col justify-center">
-              <motion.img
-                src="images/image5.jpg"
-                alt="Voiture de sport"
-                className="rounded-lg mb-6 shadow-md"
+              {/* CORRECTION: Bddelna <img> b <Image> w ghelfناه b motion.div */}
+              <motion.div
+                className="rounded-lg mb-6 shadow-md overflow-hidden"
                 initial={{ scale: 1.1, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-              />
+              >
+                <Image
+                  src="/images/image5.jpg"
+                  alt="Voiture de sport"
+                  width={500}
+                  height={350}
+                  className="w-full h-auto"
+                />
+              </motion.div>
               <h2 className="text-3xl font-bold text-gray-900 mb-3">
                 Demandez un devis pour la Superbe GT
               </h2>
               <p className="text-gray-600 mb-6">
-                Vivez l'exception. Remplissez le formulaire pour obtenir une offre personnalisée et
-                faire le premier pas vers votre rêve.
+                {/* CORRECTION: Bddelna ' b &apos; */}
+                Vivez l&apos;exception. Remplissez le formulaire pour obtenir une offre personnalisée
+                et faire le premier pas vers votre rêve.
               </p>
               <div className="space-y-3">
                 {carFeatures.map((feature, index) => (

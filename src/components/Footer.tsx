@@ -49,8 +49,9 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                {/* CORRECTION: Bddelna ' b &apos; */}
                 <Link href="/sav" className="text-gray-600 hover:text-gray-900">
-                  Pièces d'Origine
+                  Pièces d&apos;Origine
                 </Link>
               </li>
             </ul>

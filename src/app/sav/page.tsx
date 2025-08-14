@@ -1,22 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react'; // 7yedna useState
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Footer from '@/components/Footer'; // Rj3na Footer
 import type { Variants } from 'framer-motion';
+import Image from 'next/image'; // ZEDNA IMPORT DYAL IMAGE
+
+// 7yedna les icons zaydin w khllina ghir li msta3mlin
 import {
-  User,
-  Mail,
-  Menu,
-  X,
-  Car,
   Wrench,
   ScanSearch,
   PaintRoller,
   Puzzle,
-  ConciergeBell,
-  ShieldCheck,
 } from 'lucide-react';
 
 
@@ -39,7 +35,7 @@ export default function SAVPage() {
         'https://images.unsplash.com/photo-1621996346565-e326e7e2480e?q=80&w=2670&auto=format&fit=crop',
     },
     {
-      title: 'Carrosserie et Peinture',
+      title: "Carrosserie et Peinture",
       description:
         "Rayures, impacts ou personnalisation ? Notre atelier redonne à votre voiture son éclat d'origine avec des produits et techniques de haute qualité.",
       icon: <PaintRoller className="h-10 w-10 text-blue-600" />,
@@ -80,10 +76,13 @@ export default function SAVPage() {
         {/* Hero Section */}
         <div className="relative h-[50vh] bg-gray-800 text-white flex items-center justify-center">
           <div className="absolute inset-0">
-            <img
-              src="images/sav.jpg"
-              alt=""
-              className="w-full h-full object-cover opacity-40"
+            {/* CORRECTION: Bddelna <img> b <Image> dyal Next.js */}
+            <Image
+              src="/images/sav.jpg"
+              alt="Atelier de service après-vente"
+              fill
+              priority
+              className="object-cover opacity-40"
             />
           </div>
           <motion.div
@@ -93,10 +92,12 @@ export default function SAVPage() {
             transition={{ duration: 0.7 }}
           >
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-              Un Service d'Excellence
+              {/* CORRECTION: Bddelna ' b &apos; */}
+              Un Service d&apos;Excellence
             </h1>
             <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
-              Parce que votre tranquillité d'esprit est notre priorité, notre service après-vente
+              {/* CORRECTION: Bddelna ' b &apos; */}
+              Parce que votre tranquillité d&apos;esprit est notre priorité, notre service après-vente
               vous accompagne.
             </p>
           </motion.div>
@@ -148,6 +149,7 @@ export default function SAVPage() {
         </div>
       </main>
 
+      <Footer />
     </div>
   );
 }
