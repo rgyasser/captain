@@ -6,8 +6,6 @@ import Header from "@/components/Header";
 import AccessoriesCarousel from "@/components/AccessoriesCarousel";
 import { motion } from "framer-motion";
 
-// 7yedna import dyal react-tilt
-
 interface UniqueFeatureRowProps {
   title: string;
   description: string;
@@ -32,8 +30,9 @@ const UniqueFeatureRow: React.FC<UniqueFeatureRowProps> = ({
       {images.map((imgSrc, index) => (
         <div
           key={index}
-          className={`relative w-28 h-20 rounded-md cursor-pointer ring-2 transition-all ${currentIndex === index ? "ring-red-600" : "ring-transparent"
-            }`}
+          className={`relative w-28 h-20 rounded-md cursor-pointer ring-2 transition-all ${
+            currentIndex === index ? "ring-red-600" : "ring-transparent"
+          }`}
           onClick={() => handleThumbnailClick(index)}
         >
           <Image
@@ -86,18 +85,18 @@ const UniqueFeatureRow: React.FC<UniqueFeatureRowProps> = ({
   );
 };
 
-// 7yedna l'objet dyal tiltOptions
-
 export default function HomePage() {
   const feature1 = {
     title: "Passe partout et puissant",
-    description: "Avec sa taille compacte, Captain passe facilement entre les arbres et atteint les zones les plus étroites, tout en restant puissant et précis.",
+    description:
+      "Avec sa taille compacte, Captain passe facilement entre les arbres et atteint les zones les plus étroites, tout en restant puissant et précis.",
     images: ["/images/pss.png", "/images/pss2.png", "/images/pss3.png"],
   };
 
   const feature2 = {
     title: "Rentable et écologique",
-    description: "Captain consomme moins de carburant, réduit vos coûts d'exploitation et limite son impact sur l'environnement — un choix gagnant pour votre activité et pour la planète.",
+    description:
+      "Captain consomme moins de carburant, réduit vos coûts d'exploitation et limite son impact sur l'environnement — un choix gagnant pour votre activité et pour la planète.",
     images: ["/images/pss5.png", "/images/pss6.png", "/images/img1.png"],
   };
 
@@ -109,14 +108,12 @@ export default function HomePage() {
         style={{ backgroundImage: "url('/images/bg1.png')" }}
       >
         <div className="container mx-auto px-6 h-full relative">
-          
-          {/* Rje3na l code l'9dim w l basit dyal hover */}
           <motion.div
             className="absolute right-0 -bottom-16 md:-bottom-30 z-10 w-2/3 md:w-1/2 lg:w-5/12 cursor-pointer"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            whileHover={{ scale: 1.05, rotate: 2 }} // <-- L'effet simple dyal hover
+            whileHover={{ scale: 1.05, rotate: 2 }}
           >
             <Image
               src="/images/imgi_6_1.png"
@@ -126,8 +123,8 @@ export default function HomePage() {
               className="w-full h-auto"
               priority
               onError={(e) =>
-              (e.currentTarget.src =
-                "https://placehold.co/900x900/cccccc/FFFFFF?text=Tracteur")
+                (e.currentTarget.src =
+                  "https://placehold.co/900x900/cccccc/FFFFFF?text=Tracteur")
               }
             />
           </motion.div>
@@ -137,7 +134,6 @@ export default function HomePage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-y-8 text-center">
-            
             <motion.div
               className="px-4 md:border-r md:border-gray-300"
               initial={{ opacity: 0, y: 50 }}
@@ -200,9 +196,13 @@ export default function HomePage() {
 
       <section id="accessories" className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl font-extrabold text-red-600 text-center uppercase">ACCESSOIRES</h1>
+          <h1 className="text-4xl font-extrabold text-red-600 text-center uppercase">
+            ACCESSOIRES
+          </h1>
           <p className="text-center text-gray-600 mt-2 max-w-3xl mx-auto">
-            Large possibilité d'extension grâce à de nombreux accessoires et fonctionnalités.
+            {/* CORRECTION: Bddelna ' b &apos; */}
+            Large possibilité d&apos;extension grâce à de nombreux accessoires
+            et fonctionnalités.
           </p>
           <div className="mt-12 space-y-16 text-left">
             <AccessoriesCarousel />

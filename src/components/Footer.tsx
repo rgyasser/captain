@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Contact Info */}
           <div className="space-y-4">
-            <Image src="/images/logo.png" alt="Logo" width={120} height={40} />
+            <Image src="/images/lg.png" alt="Logo" width={120} height={40} />
             <p className="text-gray-600">
               Leader des véhicules utilitaires au Maroc. Puissance, fiabilité et innovation pour vos
               défis professionnels.
@@ -49,8 +49,9 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                {/* CORRECTION: Bddelna ' b &apos; */}
                 <Link href="/sav" className="text-gray-600 hover:text-gray-900">
-                  Pièces d'Origine
+                  Pièces d&apos;Origine
                 </Link>
               </li>
             </ul>
