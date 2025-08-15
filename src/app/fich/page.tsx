@@ -64,8 +64,7 @@ export default function FicheTechniquePage() {
     <>
       {/* <Header /> */}
       <main className="bg-gray-50">
-        <div className="container mx-auto px-4 py-8 md:py-30">
-
+        <div className="container mx-auto px-4 py-8 mt-15">
           <header className="text-center mb-10">
             <h1 className="text-4xl md:text-5xl font-bold text-red-700">Captain 263 4WD</h1>
             <p className="text-lg md:text-xl text-gray-600 mt-2">Fiche Technique Détaillée</p>
