@@ -35,7 +35,7 @@ export default function ContactPage() {
                   <div className="flex items-center gap-4 group">
                     <MapPin className="text-blue-600 text-2xl flex-shrink-0" />
                     <span className="text-lg text-gray-700 group-hover:text-blue-600 transition-colors">
-                      Route Nationale 1 Complexe Commercial Ain Al Hayat Mag 6 Skhirat, Maroc{' '}
+                      Route Nationale 1 Complexe Commercial <br /> Ain Al Hayat Mag 6 Skhirat, Maroc
                     </span>
                   </div>
                   <div className="flex items-center gap-4 group">
@@ -68,12 +68,6 @@ export default function ContactPage() {
                   loading="lazy"
                   className="group-hover:opacity-90 transition-opacity duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent pointer-events-none flex items-end p-4">
-                  <div className="flex items-center gap-2 bg-white/90 px-3 py-2 rounded-lg border border-gray-200">
-                    <MapPin className="text-blue-600 h-5 w-5" />
-                    <span className="text-gray-800 text-sm font-medium">charika</span>
-                  </div>
-                </div>
               </div>
             </div>
 

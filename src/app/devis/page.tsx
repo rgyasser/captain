@@ -36,12 +36,6 @@ export default function DevisPage() {
     setIsSubmitted(true);
   };
 
-  const carFeatures = [
-    { icon: <GaugeCircle className="text-blue-600" />, text: '0-100 km/h en 2.9s' },
-    { icon: <Zap className="text-blue-600" />, text: 'Puissance de 720 ch' },
-    { icon: <Gem className="text-blue-600" />, text: 'Finitions en fibre de carbone' },
-  ];
-
   if (isSubmitted) {
     return (
       <div className="flex flex-col min-h-screen bg-white">
@@ -92,35 +86,18 @@ export default function DevisPage() {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <Image
-                  src="/images/image5.jpg"
+                  src="/images/img1.png"
                   alt="Voiture de sport"
                   width={500}
                   height={350}
                   className="w-full h-auto"
                 />
               </motion.div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-3">
-                Demandez un devis pour la Superbe GT
-              </h2>
               <p className="text-gray-600 mb-6">
                 {/* CORRECTION: Bddelna ' b &apos; */}
                 Vivez l&apos;exception. Remplissez le formulaire pour obtenir une offre personnalisée
                 et faire le premier pas vers votre rêve.
               </p>
-              <div className="space-y-3">
-                {carFeatures.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-center gap-3"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  >
-                    {feature.icon}
-                    <span className="text-gray-700">{feature.text}</span>
-                  </motion.div>
-                ))}
-              </div>
             </div>
 
             {/* Partie Droite : Formulaire */}

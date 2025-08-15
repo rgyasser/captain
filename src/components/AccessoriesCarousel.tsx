@@ -13,9 +13,10 @@ import 'swiper/css/navigation';
 
 // 1. On sépare les accessoires en deux listes
 const frontAccessories = [
-    { image: '/images/.png', alt: '', title: '' },
-    { image: '/images/.png', alt: '', title: '' },
-    { image: '/images/.png', alt: '', title: '' },
+    { image: '/images/cochet2F.png', alt: 'Chargeur Captain 2 fonctions', title: 'Chargeur Captain 2 fonctions' },
+    { image: '/images/cochet3F.png', alt: 'Chargeur Captain 3 fonctions', title: 'Chargeur Captain 3 fonctions' },
+    { image: '/images/masse-captain.png', alt: 'MASSE 20 KG CAPTAIN', title: 'Masse 20 KG Captain' },
+    { image: '/images/smasse.png', alt: 'SUPPORT DE MASSE CAPTAIN', title: 'Support de masse Captain' },
 ];
 
 const rearAccessories = [
@@ -117,20 +118,34 @@ export default function AccessoriesLayout() {
 
                 {/* Version MOBILE - AVANT */}
                 <div className="md:hidden">
-                    <Swiper modules={[Pagination, Navigation]} slidesPerView={1} spaceBetween={30} loop={true} pagination={{ clickable: true }} navigation={true} className="mobile-accessories-swiper">
-                        {frontAccessories.map((item, index) => (
-                            <SwiperSlide key={index}>
-                                <div className="w-full max-w-xs mx-auto border border-gray-200 rounded-xl bg-white shadow-lg flex flex-col overflow-hidden">
-                                    <div className='bg-white p-4 flex flex-col items-center justify-center'>
-                                        <img src={item.image} alt={item.alt} className="w-48 h-48 object-contain mb-4" />
+                    <div className="relative pb-10">
+                        <Swiper 
+                            modules={[Pagination, Navigation]} 
+                            slidesPerView={1} 
+                            spaceBetween={30} 
+                            loop={true} 
+                            pagination={{ 
+                                clickable: true,
+                                el: '.swiper-pagination'
+                            }} 
+                            navigation={true} 
+                            className="mobile-accessories-swiper"
+                        >
+                            {frontAccessories.map((item, index) => (
+                                <SwiperSlide key={index}>
+                                    <div className="w-full max-w-xs mx-auto border border-gray-200 rounded-xl bg-white shadow-lg flex flex-col overflow-hidden">
+                                        <div className='bg-white p-4 flex flex-col items-center justify-center'>
+                                            <img src={item.image} alt={item.alt} className="w-48 h-48 object-contain mb-4" />
+                                        </div>
+                                        <div className="p-4 text-center bg-gray-50 border-t border-gray-200">
+                                            <span className="font-semibold text-base text-gray-800">{item.title}</span>
+                                        </div>
                                     </div>
-                                    <div className="p-4 text-center bg-gray-50 border-t border-gray-200">
-                                        <span className="font-semibold text-base text-gray-800">{item.title}</span>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                        <div className="swiper-pagination absolute bottom-0 w-full"></div>
+                    </div>
                 </div>
             </div>
 
@@ -181,20 +196,34 @@ export default function AccessoriesLayout() {
 
                 {/* Version MOBILE - ARRIÈRE */}
                 <div className="md:hidden">
-                    <Swiper modules={[Pagination, Navigation]} slidesPerView={1} spaceBetween={30} loop={true} pagination={{ clickable: true }} navigation={true} className="mobile-accessories-swiper">
-                        {rearAccessories.map((item, index) => (
-                            <SwiperSlide key={index}>
-                                <div className="w-full max-w-xs mx-auto border border-gray-200 rounded-xl bg-white shadow-lg flex flex-col overflow-hidden">
-                                    <div className='bg-white p-4 flex flex-col items-center justify-center'>
-                                        <img src={item.image} alt={item.alt} className="w-48 h-48 object-contain mb-4" />
+                    <div className="relative pb-10">
+                        <Swiper 
+                            modules={[Pagination, Navigation]} 
+                            slidesPerView={1} 
+                            spaceBetween={30} 
+                            loop={true} 
+                            pagination={{ 
+                                clickable: true,
+                                el: '.swiper-pagination'
+                            }} 
+                            navigation={true} 
+                            className="mobile-accessories-swiper"
+                        >
+                            {rearAccessories.map((item, index) => (
+                                <SwiperSlide key={index}>
+                                    <div className="w-full max-w-xs mx-auto border border-gray-200 rounded-xl bg-white shadow-lg flex flex-col overflow-hidden">
+                                        <div className='bg-white p-4 flex flex-col items-center justify-center'>
+                                            <img src={item.image} alt={item.alt} className="w-48 h-48 object-contain mb-4" />
+                                        </div>
+                                        <div className="p-4 text-center bg-gray-50 border-t border-gray-200">
+                                            <span className="font-semibold text-base text-gray-800">{item.title}</span>
+                                        </div>
                                     </div>
-                                    <div className="p-4 text-center bg-gray-50 border-t border-gray-200">
-                                        <span className="font-semibold text-base text-gray-800">{item.title}</span>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                        <div className="swiper-pagination absolute bottom-0 w-full"></div>
+                    </div>
                 </div>
             </div>
 
@@ -212,6 +241,19 @@ export default function AccessoriesLayout() {
                 .mobile-accessories-swiper .swiper-button-prev:after {
                     font-size: 14px;
                     font-weight: bold;
+                }
+                .mobile-accessories-swiper .swiper-pagination {
+                    position: absolute;
+                    bottom: -30px;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    text-align: center;
+                }
+                .mobile-accessories-swiper .swiper-pagination-bullet {
+                    width: 8px;
+                    height: 8px;
+                    margin: 0 4px;
                 }
                 .mobile-accessories-swiper .swiper-pagination-bullet-active {
                     background-color: #38a169;
