@@ -85,21 +85,60 @@ const UniqueFeatureRow: React.FC<UniqueFeatureRowProps> = ({
 };
 
 export default function HomePage() {
-  const [bgImage, setBgImage] = useState('/images/bg1.png');
-
+  // Background carousel images
+  const bgImagesDesktop = [
+    '/images/bg1.png',
+    '/images/bg2.png',
+  ];
+  
+  const bgImagesMobile = [
+    '/images/mobilebacjground.png',
+    '/images/mobilebacjground2.png',
+  ];
+  
+  const [bgIndex, setBgIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Handle screen size changes
   useEffect(() => {
     const handleResize = () => {
-      setBgImage(window.innerWidth < 768 ? '/images/mobilebacjground2.png' : '/images/bg1.png');
+      setIsMobile(window.innerWidth < 768);
     };
-
+    
     // Initial check
     handleResize();
-
+    
     // Add event listener
     window.addEventListener('resize', handleResize);
-
+    
     // Cleanup
     return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  // Cycle background images every 5 seconds
+  useEffect(() => {
+    const id = setInterval(() => {
+      setBgIndex((i) => (i + 1) % bgImagesDesktop.length);
+    }, 4000);
+    
+    return () => clearInterval(id);
+  }, []);
+  
+  // Get current background image based on device
+  const currentBgImage = isMobile ? bgImagesMobile[bgIndex] : bgImagesDesktop[bgIndex];
+  
+  // Hero images for the tractor
+  const heroImages = [
+    '/images/image1.png',
+  ];
+  const [heroIndex, setHeroIndex] = useState(0);
+  
+  // Cycle hero images
+  useEffect(() => {
+    const id = setInterval(() => {
+      setHeroIndex((i) => (i + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(id);
   }, []);
 
   const feature1 = {
@@ -120,35 +159,49 @@ export default function HomePage() {
     <main>
       <Header />
       <section
-        className="relative w-full h-[60vh] md:h-[80vh] bg-cover bg-center mb-16 md:mb-24"
+        className="relative w-full h-[60vh] md:h-[100vh] bg-cover bg-center mb-16 md:mb-24"
         style={{
-          backgroundImage: `url(${bgImage})`
+          backgroundImage: `url(${currentBgImage})`,
+          transition: 'background-image 0.5s ease-in-out'
         }}
       >
+        {/* Optional: Background navigation dots */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+          {(isMobile ? bgImagesMobile : bgImagesDesktop).map((_, i) => (
+            <button
+              key={i}
+              className={`w-3 h-3 rounded-full ${i === bgIndex ? 'bg-white' : 'bg-white/50'}`}
+              onClick={() => setBgIndex(i)}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+        
         <div className="container mx-auto px-6 h-full relative">
           <motion.div
-            className={`absolute right-0 -bottom-12 md:-bottom-30 z-10 w-2/3 md:w-1/2 lg:w-5/12 cursor-pointer`} initial={{ opacity: 0, x: 100 }}
+            className="absolute right-0 -bottom-12 md:-bottom-12 z-10 w-2/3 md:w-1/2 lg:w-5/12 cursor-pointer"
+            initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
             whileHover={{ scale: 1.05, rotate: 2 }}
           >
             <Image
-              src="/images/imgi_6_1.png"
+              src={heroImages[heroIndex]}
               alt="Captain Tractor"
               width={900}
               height={900}
               className="w-full h-auto"
               priority
               onError={(e) =>
-              (e.currentTarget.src =
-                "https://placehold.co/900x900/cccccc/FFFFFF?text=Tracteur")
+                (e.currentTarget.src =
+                  "https://placehold.co/900x900/cccccc/FFFFFF?text=Tracteur")
               }
             />
           </motion.div>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="pb-10 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-y-8 text-center">
             <motion.div
