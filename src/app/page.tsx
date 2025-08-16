@@ -108,7 +108,7 @@ export default function HomePage() {
         style={{ 
           backgroundImage: `url(${
             typeof window !== 'undefined' && window.innerWidth < 768
-              ? '/images/mobilebacjground.png'
+              ? '/images/mobilebacjground2.png'
               : '/images/bg1.png'
           })`
         }}
