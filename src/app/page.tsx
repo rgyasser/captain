@@ -30,9 +30,8 @@ const UniqueFeatureRow: React.FC<UniqueFeatureRowProps> = ({
       {images.map((imgSrc, index) => (
         <div
           key={index}
-          className={`relative w-28 h-20 rounded-md cursor-pointer ring-2 transition-all ${
-            currentIndex === index ? "ring-red-600" : "ring-transparent"
-          }`}
+          className={`relative w-28 h-20 rounded-md cursor-pointer ring-2 transition-all ${currentIndex === index ? "ring-red-600" : "ring-transparent"
+            }`}
           onClick={() => handleThumbnailClick(index)}
         >
           <Image
@@ -105,17 +104,16 @@ export default function HomePage() {
       <Header />
       <section
         className="relative w-full h-[60vh] md:h-[80vh] bg-cover bg-center mb-16 md:mb-24"
-        style={{ 
-          backgroundImage: `url(${
-            typeof window !== 'undefined' && window.innerWidth < 768
+        style={{
+          backgroundImage: `url(${typeof window !== 'undefined' && window.innerWidth < 768
               ? '/images/mobilebacjground2.png'
               : '/images/bg1.png'
-          })`
+            })`
         }}
       >
         <div className="container mx-auto px-6 h-full relative">
           <motion.div
-            className={`absolute right-0 -bottom-12 md:-bottom-30 z-10 w-2/3 md:w-1/2 lg:w-5/12 cursor-pointer`}            initial={{ opacity: 0, x: 100 }}
+            className={`absolute right-0 -bottom-12 md:-bottom-30 z-10 w-2/3 md:w-1/2 lg:w-5/12 cursor-pointer`} initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             whileHover={{ scale: 1.05, rotate: 2 }}
@@ -128,8 +126,8 @@ export default function HomePage() {
               className="w-full h-auto"
               priority
               onError={(e) =>
-                (e.currentTarget.src =
-                  "https://placehold.co/900x900/cccccc/FFFFFF?text=Tracteur")
+              (e.currentTarget.src =
+                "https://placehold.co/900x900/cccccc/FFFFFF?text=Tracteur")
               }
             />
           </motion.div>
