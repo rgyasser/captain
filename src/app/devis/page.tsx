@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react';
 import Header from '@/components/Header';
-import Image from 'next/image'; // ZEDNA IMPORT DYAL IMAGE
+import Image from 'next/image';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser'; // Import d'EmailJS
 import {
-  // 7YEDNA 'Car' men hna
   User,
   Mail,
   Phone,
@@ -18,6 +18,7 @@ import {
 
 export default function DevisPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // État pour le chargement
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,10 +31,36 @@ export default function DevisPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Données du devis :', formData);
-    setIsSubmitted(true);
+    setIsLoading(true);
+
+    try {
+      // Remplacez ces valeurs par vos identifiants EmailJS
+      const serviceId = 'YOUR_SERVICE_ID';
+      const templateId = 'YOUR_TEMPLATE_ID';
+      const publicKey = 'YOUR_PUBLIC_KEY';
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone_number: formData.phone,
+          message: formData.message,
+        },
+        publicKey
+      );
+
+      console.log('Email envoyé avec succès!');
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi de l\'email:', error);
+      alert('Une erreur est survenue lors de l\'envoi de votre demande. Veuillez réessayer.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (isSubmitted) {
@@ -78,7 +105,6 @@ export default function DevisPage() {
           >
             {/* Partie Gauche : Infos Véhicule */}
             <div className="p-8 flex flex-col justify-center">
-              {/* CORRECTION: Bddelna <img> b <Image> w ghelfناه b motion.div */}
               <motion.div
                 className="rounded-lg mb-6 shadow-md overflow-hidden"
                 initial={{ scale: 1.1, opacity: 0 }}
@@ -94,7 +120,6 @@ export default function DevisPage() {
                 />
               </motion.div>
               <p className="text-gray-600 mb-6">
-                {/* CORRECTION: Bddelna ' b &apos; */}
                 Vivez l&apos;exception. Remplissez le formulaire pour obtenir une offre personnalisée
                 et faire le premier pas vers votre rêve.
               </p>
@@ -111,7 +136,7 @@ export default function DevisPage() {
                   placeholder="Nom complet"
                   required
                   onChange={handleChange}
-                  className="w-full pl-12 p-4 bg-white border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                  className="w-full pl-12 p-4 bg-white border-2  text-gray-400 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                 />
               </div>
               <div className="relative">
@@ -122,7 +147,7 @@ export default function DevisPage() {
                   placeholder="Adresse e-mail"
                   required
                   onChange={handleChange}
-                  className="w-full pl-12 p-4 bg-white border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                  className="w-full pl-12 p-4 bg-white border-2 text-gray-400 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                 />
               </div>
               <div className="relative">
@@ -132,7 +157,7 @@ export default function DevisPage() {
                   name="phone"
                   placeholder="Numéro de téléphone"
                   onChange={handleChange}
-                  className="w-full pl-12 p-4 bg-white border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                  className="w-full pl-12 p-4 bg-white border-2 text-gray-400 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                 />
               </div>
               <div className="relative">
@@ -142,14 +167,17 @@ export default function DevisPage() {
                   rows={5}
                   placeholder="Un message ou des précisions ?"
                   onChange={handleChange}
-                  className="w-full pl-12 p-4 bg-white border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none resize-none transition-all"
+                  className="w-full pl-12 p-4 bg-white border-2 text-gray-400 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none resize-none transition-all"
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full p-4 bg-blue-600 text-white rounded-lg font-bold text-lg hover:bg-blue-700 active:scale-95 transform transition-all duration-300 ease-in-out shadow-md"
+                disabled={isLoading}
+                className={`w-full p-4 bg-blue-600 text-white rounded-lg font-bold text-lg hover:bg-blue-700 active:scale-95 transform transition-all duration-300 ease-in-out shadow-md ${
+                  isLoading ? 'opacity-70 cursor-not-allowed' : ''
+                }`}
               >
-                Envoyer ma demande
+                {isLoading ? 'Envoi en cours...' : 'Envoyer ma demande'}
               </button>
             </form>
           </motion.div>
