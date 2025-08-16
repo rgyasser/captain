@@ -1,11 +1,11 @@
-'use client';
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { useRouter, usePathname } from 'next/navigation';
+"use client";
+import React, { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { useRouter, usePathname } from "next/navigation";
 
 // ZEDNA IMPORT DYAL LINK W IMAGE
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
 interface MenuItem {
   label: string;
@@ -17,54 +17,66 @@ interface HeaderProps {
   className?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ className = '' }) => {
+const Header: React.FC<HeaderProps> = ({ className = "" }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
-    if (window.location.hash === '#accessories') {
-      const element = document.getElementById('accessories');
+    if (window.location.hash === "#accessories") {
+      const element = document.getElementById("accessories");
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, [pathname]);
 
   // CORRECTION: Sta3mlna l'interface MenuItem hna
   const menuItems: MenuItem[] = [
-    { label: 'Accueil', href: '/' },
-    { 
-      label: 'Accessoires', 
-      href: '/#accessories',
+    { label: "Accueil", href: "/" },
+    {
+      label: "Accessoires",
+      href: "/#accessories",
       onClick: (e: React.MouseEvent) => {
         e.preventDefault();
-        if (pathname === '/') {
-          const element = document.getElementById('accessories');
+        if (pathname === "/") {
+          const element = document.getElementById("accessories");
           if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            element.scrollIntoView({ behavior: "smooth" });
             setMenuOpen(false);
           }
         } else {
-          router.push('/#accessories');
+          router.push("/#accessories");
           setMenuOpen(false);
         }
-      }
+      },
     },
-    { label: 'Devis', href: '/devis' },
-    { label: 'Service Après-Vente', href: '/sav' },
-    { label: 'Fiche technique', href: '/fich' },
-    { label: 'Contact', href: '/contact' },
+    { label: "Devis", href: "/devis" },
+    { label: "Service Après-Vente", href: "/sav" },
+    { label: "Fiche technique", href: "/fich" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
-    <header className={`w-full bg-white backdrop-blur-sm text-gray-900 fixed top-0 left-0 right-0 z-50 shadow-md ${className}`}>
+    <header
+      className={`w-full bg-white backdrop-blur-sm text-gray-900 fixed top-0 left-0 right-0 z-50 shadow-md ${className}`}
+    >
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           {/* CORRECTION: Bddelna <a> b <Link> w <img> b <Image> */}
-          <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-bold text-blue-600 hover:text-blue-500 transition-colors">
-            <Image src="/images/lg.png" alt="Captain Maroc Logo" width={120} height={40} priority className='hover:scale-95 transition-transform' />
+          <Link
+            href="/"
+            className="flex-shrink-0 flex items-center gap-2 text-2xl font-bold text-blue-600 hover:text-blue-500 transition-colors"
+          >
+            <Image
+              src="/images/lg.png"
+              alt="Captain Maroc Logo"
+              width={120}
+              height={40}
+              priority
+              className="hover:scale-95 transition-transform"
+            />
           </Link>
 
           {/* Hamburger Menu Icon (Mobile only) */}
