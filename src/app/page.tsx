@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import AccessoriesCarousel from "@/components/AccessoriesCarousel";
 import { motion } from "framer-motion";
@@ -85,6 +85,23 @@ const UniqueFeatureRow: React.FC<UniqueFeatureRowProps> = ({
 };
 
 export default function HomePage() {
+  const [bgImage, setBgImage] = useState('/images/bg1.png');
+
+  useEffect(() => {
+    const handleResize = () => {
+      setBgImage(window.innerWidth < 768 ? '/images/mobilebacjground2.png' : '/images/bg1.png');
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const feature1 = {
     title: "Passe partout et puissant",
     description:
@@ -105,10 +122,7 @@ export default function HomePage() {
       <section
         className="relative w-full h-[60vh] md:h-[80vh] bg-cover bg-center mb-16 md:mb-24"
         style={{
-          backgroundImage: `url(${typeof window !== 'undefined' && window.innerWidth < 768
-              ? '/images/mobilebacjground2.png'
-              : '/images/bg1.png'
-            })`
+          backgroundImage: `url(${bgImage})`
         }}
       >
         <div className="container mx-auto px-6 h-full relative">
