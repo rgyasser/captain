@@ -58,6 +58,7 @@ export default function ContactPage() {
         <Header />
         <main className="flex-grow w-full bg-cover bg-center bg-fixed text-gray-900 pt-24"
           style={{ backgroundImage: "url('images/image2.jpg')" }}>
+
           <div className="min-h-full w-full flex items-center justify-center p-4 sm:p-6 lg:p-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -98,7 +99,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
           >
-            {/* Partie Gauche : Infos et Carte */}
+            {/* Partie Gauche : Infos et Carte (inchangée) */}
             <div className="flex flex-col justify-between p-8 bg-white rounded-2xl shadow-xl border border-gray-200">
               <div>
                 <h2 className="text-4xl lg:text-5xl font-bold mb-3 tracking-wide text-gray-800">
@@ -212,6 +213,7 @@ export default function ContactPage() {
                 disabled={isLoading}
                 className={`w-full flex items-center justify-center gap-3 p-4 bg-blue-600 rounded-lg font-bold text-lg text-white hover:bg-blue-700 active:scale-95 transform transition-all duration-300 ease-in-out shadow-lg shadow-blue-500/20 ${isLoading ? 'opacity-80 cursor-not-allowed' : ''
                   }`}
+
               >
                 {isLoading ? (
                   'Envoi en cours...'
