@@ -17,8 +17,7 @@ const Footer: React.FC = () => {
               <Image src="/images/lg2.png" alt="Logo Cais" width={70} height={40} />
             </div>
             <p className="text-gray-600">
-              Leader des véhicules utilitaires au Maroc. Puissance, fiabilité et innovation pour vos
-              défis professionnels.
+              Cais est le concessionnaire de la Marque Great Wall Motors Distribuer par Tractafric Maroc
             </p>
             <div className="space-y-2">
               <p className="flex items-center text-gray-600">
