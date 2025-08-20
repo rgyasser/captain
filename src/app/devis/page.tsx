@@ -120,7 +120,9 @@ export default function DevisPage() {
                 />
               </motion.div>
               <p className="text-gray-600 mb-6">
-                Vivez l&apos;exception. Remplissez le formulaire pour obtenir une offre personnalisée
+                {/* CORRECTION: Bddelna ' b &apos; */}
+                Remplissez le formulaire pour obtenir une offre personnalisée
+
                 et faire le premier pas vers votre rêve.
               </p>
             </div>

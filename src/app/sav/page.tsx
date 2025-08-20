@@ -1,45 +1,23 @@
-'use client';
+"use client";
 
-import React from 'react'; // 7yedna useState
-import { motion } from 'framer-motion';
-import Header from '@/components/Header';
-import type { Variants } from 'framer-motion';
-import Image from 'next/image'; // ZEDNA IMPORT DYAL IMAGE
+import React from "react"; // 7yedna useState
+import { motion } from "framer-motion";
+import Header from "@/components/Header";
+import type { Variants } from "framer-motion";
+import Image from "next/image"; // ZEDNA IMPORT DYAL IMAGE
 
 // 7yedna les icons zaydin w khllina ghir li msta3mlin
-import {
-  Wrench,
-  ScanSearch,
-  PaintRoller,
-  Puzzle,
-} from 'lucide-react';
-
+import { Wrench, ScanSearch, PaintRoller, Puzzle } from "lucide-react";
 
 export default function SAVPage() {
   const services = [
-    {
-      title: 'Entretien et Révision',
-      description:
-        'Confiez-nous votre véhicule pour des révisions complètes effectuées par nos experts, garantissant performance et longévité.',
-      icon: <Wrench className="h-10 w-10 text-blue-600" />,
-      imageUrl:
-        'https://images.unsplash.com/photo-1567789825623-a12731c433cb?q=80&w=2574&auto=format&fit=crop',
-    },
-    {
-      title: 'Diagnostic Électronique',
-      description:
-        'Grâce à nos équipements de pointe, nous identifions avec précision toute anomalie électronique pour une fiabilité sans faille.',
-      icon: <ScanSearch className="h-10 w-10 text-blue-600" />,
-      imageUrl:
-        'https://images.unsplash.com/photo-1621996346565-e326e7e2480e?q=80&w=2670&auto=format&fit=crop',
-    },
     {
       title: "Carrosserie et Peinture",
       description:
         "Rayures, impacts ou personnalisation ? Notre atelier redonne à votre voiture son éclat d'origine avec des produits et techniques de haute qualité.",
       icon: <PaintRoller className="h-10 w-10 text-blue-600" />,
       imageUrl:
-        'https://images.unsplash.com/photo-1603357317426-3d9925a3a2e2?q=80&w=2574&auto=format&fit=crop',
+        "https://images.unsplash.com/photo-1603357317426-3d9925a3a2e2?q=80&w=2574&auto=format&fit=crop",
     },
     {
       title: "Pièces d'Origine",
@@ -47,7 +25,7 @@ export default function SAVPage() {
         "Nous utilisons exclusivement des pièces et accessoires d'origine constructeur pour préserver l'intégrité et la valeur de votre véhicule.",
       icon: <Puzzle className="h-10 w-10 text-blue-600" />,
       imageUrl:
-        'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=2670&auto=format&fit=crop',
+        "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=2670&auto=format&fit=crop",
     },
   ];
 
@@ -60,7 +38,7 @@ export default function SAVPage() {
       y: 0,
       opacity: 1,
       transition: {
-        type: 'spring' as const,
+        type: "spring" as const,
         bounce: 0.4,
         duration: 0.8,
       },
@@ -71,12 +49,11 @@ export default function SAVPage() {
     <div className="flex flex-col min-h-screen bg-gray-50">
       <Header />
 
-      <main className="flex-grow pt-20">
+      <main className="flex-grow pt-15">
         {/* Hero Section */}
         <div className="relative h-[50vh] bg-gray-800 text-white flex items-center justify-center">
           <div className="absolute inset-0">
             {/* CORRECTION: Bddelna <img> b <Image> dyal Next.js */}
-          
           </div>
           <motion.div
             className="relative z-10 text-center"
@@ -90,8 +67,8 @@ export default function SAVPage() {
             </h1>
             <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
               {/* CORRECTION: Bddelna ' b &apos; */}
-              Parce que votre tranquillité d&apos;esprit est notre priorité, notre service après-vente
-              vous accompagne.
+              Parce que votre tranquillité d&apos;esprit est notre priorité,
+              notre service après-vente vous accompagne.
             </p>
           </motion.div>
         </div>
@@ -100,7 +77,9 @@ export default function SAVPage() {
         <div className="py-16 sm:py-24 bg-white">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Nos Prestations</h2>
+              <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+                Nos Prestations
+              </h2>
               <p className="mt-4 text-lg text-gray-600">
                 Découvrez comment nous prenons soin de votre véhicule.
               </p>
@@ -122,8 +101,12 @@ export default function SAVPage() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {service.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}

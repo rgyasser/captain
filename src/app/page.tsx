@@ -239,8 +239,8 @@ export default function HomePage() {
             >
               <h3 className="text-2xl font-bold text-red-600 mb-4">Pneu</h3>
               <div className="text-gray-700 space-y-1">
-                <p>Pneu avant : 180/85D12</p>
-                <p>Pneu arrière : 8.3 x 20</p>
+                <p>Pneu avant : 6.5 / 80 - 12</p>
+                <p>Pneu arrière : 280 / 70 R 18</p>
               </div>
             </motion.div>
           </div>
