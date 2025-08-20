@@ -1,9 +1,19 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { User, Mail, MessageSquare, Send, MapPin, Phone, Menu, X, Car } from 'lucide-react';
-import { motion } from 'framer-motion';
-import Header from '@/components/Header';
+import React, { useState } from "react";
+import {
+  User,
+  Mail,
+  MessageSquare,
+  Send,
+  MapPin,
+  Phone,
+  Menu,
+  X,
+  Car,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import Header from "@/components/Header";
 
 export default function ContactPage() {
   return (
@@ -19,7 +29,7 @@ export default function ContactPage() {
             className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeInOut' }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
           >
             {/* Partie Gauche : Infos et Carte */}
             <div className="flex flex-col justify-between p-8 bg-white rounded-2xl shadow-xl border border-gray-200">
@@ -28,14 +38,15 @@ export default function ContactPage() {
                   Contactez-nous
                 </h2>
                 <p className="text-gray-600 mb-10 text-lg">
-                  Prêt à prendre la route ? Remplissez le formulaire ou utilisez nos coordonnées.
+                  Prêt à prendre la route ? Remplissez le formulaire ou utilisez
+                  nos coordonnées.
                 </p>
 
                 <div className="space-y-6">
                   <div className="flex items-center gap-4 group">
                     <MapPin className="text-blue-600 text-2xl flex-shrink-0" />
                     <span className="text-lg text-gray-700 group-hover:text-blue-600 transition-colors">
-                      Route Nationale 1 Complexe Commercial <br /> Ain Al Hayat Mag 6 Skhirat, Maroc
+                      RPN nº 1, Mag 6, Complexe Commercial Aïn Al Hayat, Skhirat 12050
                     </span>
                   </div>
                   <div className="flex items-center gap-4 group">
@@ -44,7 +55,7 @@ export default function ContactPage() {
                       href="mailto:contact@autoprestige.com"
                       className="text-lg text-gray-700 group-hover:text-blue-600 transition-colors"
                     >
-                      nabil.baiz@cais.ma
+                      Contact@cais.ma
                     </a>
                   </div>
                 </div>
@@ -54,13 +65,13 @@ export default function ContactPage() {
                   className="mt-10 w-full flex items-center justify-center gap-3 p-4 bg-green-600 rounded-lg font-bold text-lg text-white hover:bg-green-700 active:scale-95 transform transition-all duration-300 ease-in-out shadow-lg shadow-green-500/20"
                 >
                   <Phone />
-                  <span>Appeler maintenant (+212 661 064 329)</span>
+                  <span>Appeler maintenant (+2126 61 38 78 15)</span>
                 </a>
               </div>
 
               <div className="mt-8 h-64 w-full rounded-lg overflow-hidden border border-gray-300 relative">
                 <iframe
-                  src="https://www.google.com/maps?q=Route+Nationale+1+Complexe+Commercial+Ain+Al+Hayat+Mag+6+Skhirat+Maroc&output=embed" // new embed link
+                  src="https://www.google.com/maps?q=RPN+nº+1,+Mag+6,+Complexe+Commercial+Aïn+Al+Hayat,+Skhirat+12050&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -73,7 +84,9 @@ export default function ContactPage() {
 
             {/* Partie Droite : Formulaire */}
             <form className="p-8 bg-white rounded-2xl shadow-xl border border-gray-200 space-y-6">
-              <h3 className="text-3xl font-semibold mb-4 text-gray-800">Envoyez-nous un message</h3>
+              <h3 className="text-3xl font-semibold mb-4 text-gray-800">
+                Envoyez-nous un message
+              </h3>
 
               <div className="relative group">
                 <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-blue-600 transition-colors duration-300" />
@@ -127,7 +140,6 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </main>
-
     </div>
   );
 }

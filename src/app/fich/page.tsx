@@ -47,13 +47,14 @@ const technicalData = [
   {
     category: "Dimensions et Poids",
     details: [
-      { label: "Pneus avant (standard)", value: "180/85D12" },
-      { label: "Pneus arrière (standard)", value: "8.3 x 20" },
+      { label: "Pneus avant (standard)", value: "280/ 70 R 18" },
+      { label: "Pneus arrière (standard)", value: "6.5 / 80 - 12" },
       { label: "Poids", value: "~ 950 - 1025 kg" },
       { label: "Empattement", value: "~ 1500 mm" },
       { label: "Longueur totale", value: "~ 2700 mm" },
-      { label: "Largeur totale", value: "~ 1080 mm - 1167 mm" },
+      { label: "Largeur totale", value: "~ 1030 mm - 1167 mm" },
       { label: "Capacité réservoir", value: "23 Litres" },
+      { label: "Taille", value: "2674 mm" },
     ],
   },
 ];

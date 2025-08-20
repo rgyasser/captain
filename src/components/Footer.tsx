@@ -12,17 +12,20 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Contact Info */}
           <div className="space-y-4">
-            <Image src="/images/lg.png" alt="Logo" width={120} height={40} />
+            <div className="flex items-center gap-4 mb-4">
+              <Image src="/images/lg.png" alt="Logo Captain" width={120} height={40} />
+              <Image src="/images/lg2.png" alt="Logo Cais" width={70} height={40} />
+            </div>
             <p className="text-gray-600">
               Leader des véhicules utilitaires au Maroc. Puissance, fiabilité et innovation pour vos
               défis professionnels.
             </p>
             <div className="space-y-2">
               <p className="flex items-center text-gray-600">
-                <Phone className="w-4 h-4 mr-2" /> +212 (0) 661 064 329
+                <Phone className="w-4 h-4 mr-2" /> +212 (0) 661 387 815
               </p>
               <p className="flex items-center text-gray-600">
-                <Mail className="w-4 h-4 mr-2" /> nabil.baiz@cais.ma
+                <Mail className="w-4 h-4 mr-2" /> Contact@cais.ma
               </p>
               <p className="flex items-center text-gray-600">
                 <MapPin className="w-4 h-4 mr-2" /> Skhirat, Maroc
@@ -33,16 +36,6 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold">Services</h3>
             <ul className="mt-4 space-y-2">
-              <li>
-                <Link href="/sav" className="text-gray-600 hover:text-gray-900">
-                  Entretien et Révision
-                </Link>
-              </li>
-              <li>
-                <Link href="/sav" className="text-gray-600 hover:text-gray-900">
-                  Diagnostic Électronique
-                </Link>
-              </li>
               <li>
                 <Link href="/sav" className="text-gray-600 hover:text-gray-900">
                   Carrosserie et Peinture
