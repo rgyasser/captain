@@ -135,7 +135,7 @@ export default function SAVPage() {
         <div className="container mx-auto px-6 py-16 text-center bg-white">
           <a
             href="/contact"
-            className="mt-8 inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg hover:bg-blue-700 transition-transform hover:scale-105"
+            className="mt-8 inline-block bg-red-600 text-white font-bold text-lg px-8 py-4 rounded-lg hover:bg-red-700 transition-transform hover:scale-105"
           >
             Prendre Rendez-vous
           </a>

@@ -173,7 +173,7 @@ export default function DevisPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full p-4 bg-blue-600 text-white rounded-lg font-bold text-lg hover:bg-blue-700 active:scale-95 transform transition-all duration-300 ease-in-out shadow-md ${
+                className={`w-full p-4 bg-red-600 text-white rounded-lg font-bold text-lg hover:bg-red-700 active:scale-95 transform transition-all duration-300 ease-in-out shadow-md ${
                   isLoading ? 'opacity-70 cursor-not-allowed' : ''
                 }`}
               >

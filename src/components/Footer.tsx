@@ -97,16 +97,19 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="bg-stone-200 py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between text-gray-600">
-          <p>&copy; {new Date().getFullYear()} Poer Maroc. Tous droits réservés.</p>
-          <div className="flex space-x-4">
-            <h2>Mentions légales</h2>
-            <h2>Politique de confidentialité</h2>
-            <h2>CGV </h2>
-          </div>
-        </div>
-      </div>
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-center items-center">
+        <p className="text-sm text-center text-stone-600">
+            Réalisé par{" "}
+            <a
+                href="https://toubkal-marketing.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-black-600  hover:text-red-600 transition-colors"
+            >
+                Toubkal Marketing
+            </a>
+        </p>
+    </div>
     </footer>
   );
 };

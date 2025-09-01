@@ -112,7 +112,7 @@ export default function ContactPage() {
                 <div className="space-y-6">
                   <div className="flex items-center gap-4 group">
                     <MapPin className="text-blue-600 text-2xl flex-shrink-0" />
-                    <span className="text-lg text-gray-700 group-hover:text-blue-600 transition-colors">
+                    <span className="text-lg text-gray-700  transition-colors">
                       Route Nationale 1 Complexe Commercial <br /> Ain Al Hayat Mag 6 Skhirat, Maroc
                     </span>
                   </div>
@@ -120,7 +120,7 @@ export default function ContactPage() {
                     <Mail className="text-blue-600 text-2xl flex-shrink-0" />
                     <a
                       href="mailto:contact@autoprestige.com"
-                      className="text-lg text-gray-700 group-hover:text-blue-600 transition-colors"
+                      className="text-lg text-gray-700 group-hover:text-red-600 transition-colors"
                     >
                       nabil.baiz@cais.ma
                     </a>
@@ -210,7 +210,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full flex items-center justify-center gap-3 p-4 bg-blue-600 rounded-lg font-bold text-lg text-white hover:bg-blue-700 active:scale-95 transform transition-all duration-300 ease-in-out shadow-lg shadow-blue-500/20 ${
+                className={`w-full flex items-center justify-center gap-3 p-4 bg-red-600 rounded-lg font-bold text-lg text-white hover:bg-red-700 active:scale-95 transform transition-all duration-300 ease-in-out shadow-lg shadow-blue-500/20 ${
                   isLoading ? 'opacity-80 cursor-not-allowed' : ''
                 }`}
               >
